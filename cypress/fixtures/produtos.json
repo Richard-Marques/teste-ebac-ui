@@ -1,0 +1,20 @@
+[
+    {
+        "nomeProduto": "Helena Hooded Fleece",
+        "tamanho": "XL",
+        "cor": "Gray",
+        "quantidade": 3
+    },
+    {
+        "nomeProduto": "Grayson Crewneck Sweatshirt",
+        "tamanho": "S",
+        "cor": "Red",
+        "quantidade": 5
+    },
+    {
+        "nomeProduto": "Livingston All-Purpose Tight",
+        "tamanho": "36",
+        "cor": "Black",
+        "quantidade": 10
+    }
+]
