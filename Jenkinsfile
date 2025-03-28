@@ -2,15 +2,32 @@ pipeline {
     agent any
 
     stages {
-        stage('Setup') {
+        stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Richard-Marques/teste-ebac-ui.git'
-                sh 'npm install'
+                script {
+                    checkout([$class: 'GitSCM', 
+                        branches: [[name: '*/pipeline']], 
+                        doGenerateSubmoduleConfigurations: false, 
+                        extensions: [[$class: 'CleanBeforeCheckout']], 
+                        submoduleCfg: [], 
+                        userRemoteConfigs: [[url: 'https://github.com/Richard-Marques/teste-ebac-ui.git']]])
+                }
             }
         }
+
+        stage('Install Dependencies') {
+            steps {
+                script {
+                    sh 'npm install'
+                }
+            }
+        }
+
         stage('Test') {
             steps {
-                sh 'NO_COLOR=1 npm test'
+                script {
+                    sh 'npm test'
+                }
             }
         }
     }
